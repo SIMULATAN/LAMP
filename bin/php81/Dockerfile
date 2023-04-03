@@ -19,6 +19,7 @@ dialog \
 libsqlite3-dev \
 libsqlite3-0 && \
     apt-get -y --no-install-recommends install default-mysql-client \
+libpq-dev \
 zlib1g-dev \
 libzip-dev \
 libicu-dev && \
@@ -71,6 +72,7 @@ RUN cd /usr/local/src && \
 RUN docker-php-ext-install pdo_mysql && \
     docker-php-ext-install pdo_sqlite && \
     docker-php-ext-install mysqli && \
+    docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql && docker-php-ext-install pdo_pgsql pgsql && \
     docker-php-ext-install curl && \
     docker-php-ext-install zip && \
     docker-php-ext-install -j$(nproc) intl && \

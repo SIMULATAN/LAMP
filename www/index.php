@@ -27,6 +27,10 @@
                         <hr>
                         <div class="content">
                             <ul>
+                                <li>
+                                    <?php
+                                        printf("It is %s o'clock", date("G:i:s"))
+                                    ?>
                                 <li><?= apache_get_version(); ?></li>
                                 <li>PHP <?= phpversion(); ?></li>
                                 <li>
